@@ -240,3 +240,5 @@ if __name__ == '__main__':
     plt.axis('off')  # xoa truc x y
     plt.show()
 
+
+# https://drive.google.com/file/d/1sFU9RxQgrnBwa8d3yzXvJZijfMvjdkVL/view
