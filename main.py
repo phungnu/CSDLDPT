@@ -119,19 +119,27 @@ if __name__ == '__main__':
     inp = "./db/in/"
     np.seterr(divide='ignore', invalid='ignore')
 
+    # trích xuất đặc trưng ảnh trong dữ liệu và lưu trong folder feature
+
     # for filename in os.listdir(imgFolder):
     #     extract(os.path.join(imgFolder, filename), os.path.splitext(filename)[0])
 
-    folderFeature = "./feature/"
+
+    # đọc dữ liệu dặc trưng của ảnh trong db từ folder feature và lưu vào mảng features
+
+    folderFeature = "./feature"
     features = np.array([[None] * 32400])
-    for i in range(1, 190):
+    for i in range(1, 180):
         filename = 'child-' + str(i) + '_feature.npy'
         f = np.load(folderFeature + '/' + filename, allow_pickle=True)
         features = np.append(features, [f.flatten()], axis=0)
         print('append feature image: %s' % filename)
 
-    for filename in os.listdir(inp):
-        extract1(os.path.join(inp, filename), os.path.splitext(filename)[0])
+
+    # trích xuất đặc trưng ảnh input
+    fileInputName = "child-in-2.png"
+    extract1(os.path.join(inp, fileInputName), os.path.splitext(fileInputName)[0])
+    
     folderFeature1 = "./ift/"
     features1 = np.array([[None] * 32400])
     for filename in os.listdir(folderFeature1):
